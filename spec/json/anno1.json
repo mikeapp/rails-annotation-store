@@ -1,0 +1,27 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@type": "oa:Annotation",
+  "motivation": [
+    "oa:commenting"
+  ],
+  "resource": [
+    {
+      "@type": "dctypes:Text",
+      "format": "text/html",
+      "chars": "<p>eyes</p>"
+    }
+  ],
+  "on": {
+    "@type": "oa:SpecificResource",
+    "full": "http://manifests.britishart.yale.edu/canvas/ba-obj-1474-0001-pub",
+    "selector": {
+      "@type": "oa:SvgSelector",
+      "value": "<svg xmlns='http://www.w3.org/2000/svg'><g><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M2253.40515,1706.7654c22.18384,-14.02285 53.47775,-24.4652 84.9233,-24.45272l0,0l0,0c31.44555,0.01248 58.83991,9.78112 84.9233,24.45272c26.08339,14.6716 36.22168,37.02829 35.17638,59.03409c-1.0453,22.0058 -13.27417,43.66072 -35.17638,59.03409c-21.90221,15.37337 -53.47775,24.4652 -84.9233,24.45272c-31.44555,-0.01248 -62.76112,-9.12925 -84.9233,-24.45272c-22.16218,-15.32347 -35.17096,-36.85363 -35.17638,-59.03409c-0.00542,-22.18046 12.99254,-45.01124 35.17638,-59.03409z\" data-paper-data=\"{&quot;defaultStrokeValue&quot;:1,&quot;editStrokeValue&quot;:5,&quot;currentStrokeValue&quot;:5,&quot;rotation&quot;:0,&quot;annotation&quot;:null,&quot;editable&quot;:true,&quot;deleteIcon&quot;:null,&quot;rotationIcon&quot;:null,&quot;group&quot;:null}\" id=\"ellipse_9564bc2a-2f5f-4920-8f6b-2a58557f5932\" fill-opacity=\"0\" fill=\"#00ff28\" fill-rule=\"nonzero\" stroke=\"#4aff00\" stroke-width=\"6.78633\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"5,5\" stroke-dashoffset=\"0\" font-family=\"sans-serif\" font-weight=\"normal\" font-size=\"12\" text-anchor=\"start\" style=\"mix-blend-mode: normal\"/><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M2990.97562,1854.50518c-29.76393,8.99846 -70.54784,13.09424 -110.17623,7.53817l0,0l0,0c-39.62839,-5.55607 -72.89451,-19.37972 -103.87694,-37.48608c-30.98243,-18.10636 -40.87978,-40.47642 -36.72795,-60.55151c4.15183,-20.07509 22.35283,-37.85522 51.93578,-48.14667c29.58295,-10.29145 70.54784,-13.09424 110.17623,-7.53817c39.62839,5.55607 77.92028,19.47099 103.87694,37.48608c25.95666,18.01509 39.57809,40.13035 36.72795,60.55151c-2.85014,20.42116 -22.17185,39.14821 -51.93578,48.14667z\" data-paper-data=\"{&quot;defaultStrokeValue&quot;:1,&quot;editStrokeValue&quot;:5,&quot;currentStrokeValue&quot;:5,&quot;rotation&quot;:7.964483462832618,&quot;annotation&quot;:null,&quot;editable&quot;:true}\" id=\"ellipse_d827ebb3-ce37-46e3-854b-b0f7686c9080\" fill-opacity=\"0\" fill=\"#38ff00\" fill-rule=\"nonzero\" stroke=\"#4aff00\" stroke-width=\"6.78633\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"5,5\" stroke-dashoffset=\"0\" font-family=\"sans-serif\" font-weight=\"normal\" font-size=\"12\" text-anchor=\"start\" style=\"mix-blend-mode: normal\"/></g></svg>"
+    },
+    "within": {
+      "@id": "http://manifests.britishart.yale.edu/manifest/1474",
+      "@type": "sc:Manifest"
+    }
+  },
+  "@id": "http://127.0.0.1:3000/annotation/9afdf847-77f7-4ca0-b2e9-6052daa55452"
+}
