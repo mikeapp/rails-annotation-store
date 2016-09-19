@@ -1,45 +1,44 @@
 class AnnotationsController < ApplicationController
 
-  ANNOTATION_PREFIX = 'http://127.0.0.1:3000/annotation/'
-
   def index
     render json: {}
   end
 
   def show
-    data = annotation_from_params
-    render json: data
+    resource_id = annotation_prefix + params[:id]
+    annotation = Annotation.find_by('resource_id' => resource_id)
+    render json: annotation.data
   end
 
   def create
-    annotation = annotation_from_params
-    annotation['@id'] = annotation_prefix + SecureRandom.uuid
-    data = JSON.pretty_generate annotation
-    resource = annotation['resource']
+    annotation_params = annotation_from_params
+    annotation_params['@id'] = annotation_prefix + SecureRandom.uuid
+    annotation_json = JSON.pretty_generate annotation_params
+    resource = annotation_params['resource']
     resource = resource[0] if resource.is_a?(Array)
     search_text = resource['chars']
-    motivation = annotation['motivation'].to_s
-    annotation_id = annotation['@id']
-    anno = Annotation.create(resource_id: annotation_id, data: data, search_text: search_text, motivation: motivation, active: true)
-    target = Target.create(canvas: annotation['on']['full'], manifest: annotation['on']['within']['@id'])
-    anno.targets = [ target ]
-    render json: annotation
+    motivation = annotation_params['motivation'].to_s
+    annotation_id = annotation_params['@id']
+    annotation = Annotation.create(resource_id: annotation_id, data: annotation_json, search_text: search_text, motivation: motivation, active: true)
+    target = Target.create(canvas: annotation_params['on']['full'], manifest: annotation_params['on']['within']['@id'])
+    annotation.targets = [ target ]
+    render json: annotation_params
   end
 
   def update
-    annotation = annotation_from_params
-    anno = Annotation.find_by('resource_id' => annotation['@id'])
-    data = JSON.pretty_generate annotation
-    resource = annotation['resource']
+    annotation_params = annotation_from_params
+    annotation = Annotation.find_by('resource_id' => annotation_params['@id'])
+    annotation_json = JSON.pretty_generate annotation_params
+    resource = annotation_params['resource']
     resource = resource[0] if resource.is_a?(Array)
     search_text = resource['chars']
-    motivation = annotation['motivation'].to_s
-    annotation_id = annotation['@id']
-    anno.update(resource_id: annotation_id, data: data, search_text: search_text, motivation: motivation, active: true)
-    anno.targets.clear
-    anno.targets.build(canvas: annotation['on']['full'], manifest: annotation['on']['within']['@id'])
-    anno.save
-    render json: annotation
+    motivation = annotation_params['motivation'].to_s
+    annotation_id = annotation_params['@id']
+    annotation.update(resource_id: annotation_id, data: annotation_json, search_text: search_text, motivation: motivation, active: true)
+    annotation.targets.clear
+    annotation.targets.build(canvas: annotation_params['on']['full'], manifest: annotation_params['on']['within']['@id'])
+    annotation.save
+    render json: annotation_params
   end
 
   def destroy
@@ -50,7 +49,7 @@ class AnnotationsController < ApplicationController
     else
       status = 404
     end
-    render json: { '@id': uri }
+    render json: { '@id' => uri }
   end
 
   private
@@ -65,7 +64,7 @@ class AnnotationsController < ApplicationController
   end
 
   def annotation_prefix
-    ANNOTATION_PREFIX
+    Rails.application.config.annotation_uri_template
   end
 
 end

@@ -22,6 +22,5 @@
       "@id": "http://manifests.britishart.yale.edu/manifest/1474",
       "@type": "sc:Manifest"
     }
-  },
-  "@id": "http://127.0.0.1:3000/annotation/9afdf847-77f7-4ca0-b2e9-6052daa55452"
+  }
 }

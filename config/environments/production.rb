@@ -83,4 +83,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.annotation_uri_template = 'http://127.0.0.1:3000/annotation/'
+
 end
