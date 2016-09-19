@@ -19,7 +19,7 @@ RSpec.describe AnnotationsController, type: :controller do
       @response_json = JSON.parse(response.body)
     end
 
-    if 'receives an @id after POST'
+    it 'receives an @id after POST' do
       expect(@response_json['@id']).to be
     end
 
