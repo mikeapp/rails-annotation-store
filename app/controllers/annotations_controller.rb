@@ -1,7 +1,5 @@
 class AnnotationsController < ApplicationController
 
-  ANNOTATION_PREFIX = 'http://127.0.0.1:3000/annotation/'
-
   def index
     render json: {}
   end
@@ -65,7 +63,7 @@ class AnnotationsController < ApplicationController
   end
 
   def annotation_prefix
-    ANNOTATION_PREFIX
+    Rails.application.config.annotation_prefix
   end
 
 end
