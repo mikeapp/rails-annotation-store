@@ -19,5 +19,8 @@ module YcbaAnnotationStore
         resource '/annotation/*', :headers => :any, :methods => [:get, :post, :options, :put, :patch, :delete]
       end
     end
+
+    config.annotation_uri_template = ENV['YCBA_ANNOTATION_URI_TEMPLATE'] || 'http://127.0.0.1:3000/annotation/'
+
   end
 end
